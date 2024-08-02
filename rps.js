@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let computerChoiceNumber = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+  let computerChoiceNumber = Math.floor(Math.random() * (3 - 1 + 1) + 1); // Get random number between 1 and 3
   let computerChoice;
   if (computerChoiceNumber === 1) {
     computerChoice = "Rock";
@@ -13,6 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   let humanChoice = prompt("What will you throw? Rock, paper, or scissors?");
+  // Use toLowerClass to make input case-insensitive
   if (humanChoice.toLowerCase() === "rock") {
     humanChoice = "Rock";
   } else if (humanChoice.toLowerCase() === "paper") {
@@ -26,10 +27,12 @@ function getHumanChoice() {
 }
 
 function playGame() {
+  // Create score and round count variables
   let humanScore = 0;
   let computerScore = 0;
   count = 1;
   function playRound(humanChoice, computerChoice) {
+    // Account for all player win scenarios, then a tie, then computer win scenarios
     if (
       (humanChoice === "Rock" && computerChoice === "Scissors") ||
       (humanChoice === "Paper" && computerChoice === "Rock") ||
@@ -45,8 +48,9 @@ function playGame() {
     }
   }
 
+  // Use count to determine number of rounds
   while (count < 6) {
-    console.log(`Round ${count}`);
+    console.log(`---Round ${count}---`);
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
@@ -55,6 +59,7 @@ function playGame() {
     count++;
   }
 
+  // Display results message
   if (humanScore > computerScore) {
     console.log("You win! Nice job!");
   } else if (humanScore === computerScore) {
