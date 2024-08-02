@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   let humanChoice = prompt("What will you throw? Rock, paper, or scissors?");
-  // Use toLowerClass to make input case-insensitive
+  // Use toLowerCase to make input case-insensitive
   if (humanChoice.toLowerCase() === "rock") {
     humanChoice = "Rock";
   } else if (humanChoice.toLowerCase() === "paper") {
