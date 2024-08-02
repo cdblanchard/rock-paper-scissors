@@ -28,7 +28,7 @@ function getHumanChoice() {
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
-  count = 0;
+  count = 1;
   function playRound(humanChoice, computerChoice) {
     if (
       (humanChoice === "Rock" && computerChoice === "Scissors") ||
@@ -45,15 +45,23 @@ function playGame() {
     }
   }
 
-  while (count < 5) {
+  while (count < 6) {
+    console.log(`Round ${count}`);
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
+    console.log(`Your Score: ${humanScore}`);
+    console.log(`Computer Score: ${computerScore}`);
     count++;
   }
 
-  console.log(`Your Score: ${humanScore}`);
-  console.log(`Computer Score: ${computerScore}`);
+  if (humanScore > computerScore) {
+    console.log("You win! Nice job!");
+  } else if (humanScore === computerScore) {
+    console.log("It's a tie!");
+  } else {
+    console.log("You lose. Better luck next time!");
+  }
 }
 
 playGame();
